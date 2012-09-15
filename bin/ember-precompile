@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var argv = require('optimist').argv;
+
+var compileEmberTemplate = require('ember-precompile');
+
+var usage = '\n  \
+Precompile handlebar templates for Ember.js.\n  \
+Usage: ' + argv.$0 + ' template...\n\n  \
+Options:\n  \
+-f, --output   Output File\n'
+
+function main(){
+  if ((argv.h)||(argv.help)) {
+    console.log(usage);
+    process.exit(0);
+  }
+  var inputFiles = argv._;
+  var outputFile = argv.output || argv.f;
+  if (outputFile) {
+    // create a blank output file
+    fs.writeFileSync(outputFile, '', 'utf8');
+    function write(output){
+      fs.appendFileSync(outputFile, output + '\n', 'utf8');
+    }
+  }
+  else {
+    var write = console.log;
+  }
+  inputFiles.forEach(function(fileName){
+    write(compileEmberTemplate(fileName));
+  });
+}
+
+main();
