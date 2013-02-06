@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var vm = require('vm');
 
-var HANDLEBARSJS = fs.readFileSync(__dirname + '/vendor/handlebars-1.0.0.beta.6.js', 'utf8')
+var HANDLEBARSJS = fs.readFileSync(__dirname + '/vendor/handlebars-1.0.rc.1.js', 'utf8')
 var EMBERJS = fs.readFileSync(__dirname + '/vendor/ember-1.0.pre.min.js', 'utf8')
 
 module.exports = function (file) {
