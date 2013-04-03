@@ -33,5 +33,7 @@
         "email": "peter.wagenet@gmail.com"
     }, {
         "name": "Garth Williams"
-    }]
+    }],
+
+    "license": "LGPL"
 }
