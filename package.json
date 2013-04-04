@@ -2,7 +2,7 @@
     "name" : "ember-precompile",
     "version" : "0.1.7",
     "description" : "Precompile Ember.js templates with a Handlebars-like UI",
-    "main" : "./index.js",
+    "main" : "./src/index.js",
 
     "keywords" : [
         "Ember.js",
