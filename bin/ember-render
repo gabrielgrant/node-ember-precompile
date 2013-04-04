@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var argv = require('optimist').argv;
+
+var renderEmberTemplate = require('ember-precompile').render.fromCompiledString;
+
+var usage = '\n  \
+Render handlebar templates for Ember.js.\n  \
+Usage: ' + argv.$0 + ' template-name\n\n  \
+Options:\n  \
+-i, --input    Input File (default: STDIN)\n  \
+-f, --output   Output File (default: STDOUT)\n  \
+-c, --context  Context to render (as JSON)\n';
+
+function main(){
+  if ((argv.h)||(argv.help)) {
+    console.log(usage);
+    process.exit(0);
+  }
+  var templateName = argv._[0];
+  if (!templateName){
+    console.log('\n\nError: missing "template-name" argument\n\n');
+    console.log(usage);
+    process.exit(-1);
+  }
+  var context = JSON.parse(argv.c || argv.context || '{}');
+  var input = argv.input || argv.i || '/dev/stdin';
+  var compiledTemplateString = fs.readFileSync(input, 'utf8').toString();
+  var outputFile = argv.output || argv.f;
+  if (outputFile) {
+    // create a blank output file
+    fs.writeFileSync(outputFile, '', 'utf8');
+    function write(output){
+      fs.appendFileSync(outputFile, output + '\n', 'utf8');
+    }
+  }
+  else {
+    var write = console.log;
+  }
+  write(renderEmberTemplate(compiledTemplateString, templateName, context));
+}
+
+main();
+
+// vim: tabstop=8 expandtab shiftwidth=2 softtabstop=2

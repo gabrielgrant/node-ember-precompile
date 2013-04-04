@@ -10,8 +10,9 @@ mkdir "$TEST_INSTALL_DIR"
 pushd  "$TEST_INSTALL_DIR"
 npm install "$PACKAGE_DIR"
 
-# smoke test
-./node_modules/.bin/ember-precompile "$PACKAGE_DIR/test/test1.hbs"
+# round-trip-ish test
+./node_modules/.bin/ember-precompile "$PACKAGE_DIR/test/test1.hbs" > template.js
+cat template.js | ./node_modules/.bin/ember-render test1 --context '{"thing": "its and it"}'
 
 popd
 

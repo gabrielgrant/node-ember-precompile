@@ -26,3 +26,4 @@ module.exports = function (file) {
 }
 
 module.exports.context = context_;
+module.exports.render = require('./render');

@@ -1,6 +1,6 @@
 {
     "name" : "ember-precompile",
-    "version" : "0.1.7",
+    "version" : "0.2.0",
     "description" : "Precompile Ember.js templates with a Handlebars-like UI",
     "main" : "./src/index.js",
 
@@ -11,13 +11,15 @@
     ],
 
     "bin": {
-        "ember-precompile": "./bin/ember-precompile"
+        "ember-precompile": "./bin/ember-precompile",
+        "ember-render": "./bin/ember-render"
     },
 
     "dependencies": {
-        "optimist": "0.3.4"
+        "optimist": "0.3.4",
+       "jquery": "1.8.x"
     },
-    
+
     "repository" : {
         "type" : "git",
         "url" : "http://github.com/gabrielgrant/node-ember-precompile"
