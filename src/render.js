@@ -34,7 +34,7 @@ module.exports = {
       view.set("context", context);  \
       renderedTemplate = view.renderToBuffer();', execContext);
 
-    return execContext.renderedTemplate.buffer.join('\n');
+    return execContext.renderedTemplate.buffer;
   },
   //TODO fromRawString: function(){}
 };
