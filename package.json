@@ -1,6 +1,6 @@
 {
     "name" : "ember-precompile",
-    "version" : "0.2.3",
+    "version" : "0.2.4",
     "description" : "Precompile Ember.js templates with a Handlebars-like UI",
     "main" : "./src/index.js",
 
@@ -39,6 +39,9 @@
         "name": "Jarrod Nettles"
     }, {
         "name": "Zach Dennis"
+    }, {
+        "name": "Roland Ekström",
+        "email": "peshis@gmail.com"
     }],
 
     "license": "LGPL"

@@ -5,8 +5,8 @@
 var fs = require('fs');
 var vm = require('vm');
 
-var HANDLEBARSJS = fs.readFileSync(__dirname + '/../vendor/handlebars-1.0.0.js', 'utf8')
-var EMBERJS = fs.readFileSync(__dirname + '/../vendor/ember-1.0.0-rc.7.js', 'utf8')
+var HANDLEBARSJS = fs.readFileSync(__dirname + '/../vendor/handlebars-1.1.2.js', 'utf8')
+var EMBERJS = fs.readFileSync(__dirname + '/../vendor/ember-1.2.0.js', 'utf8')
 
 function getBaseSandbox() {
 
@@ -21,6 +21,10 @@ function getBaseSandbox() {
   var element = {
     firstChild: function () { return element },
     innerHTML: function () { return element },
+    // needed for canSetNameOnInputs() test
+    setAttribute: function() { return element },
+    appendChild: function() { return element },
+    innerHTML: '<input name="foo">',
     // needed for "movesWhitespace()" test
     childNodes: [
       {nodeValue: 'Test: '},
