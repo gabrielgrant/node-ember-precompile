@@ -1,5 +1,7 @@
 Precompile Handlebars templates for Ember.js
 
+Note: New projects should use [ember-cli](http://ember-cli.com/). This package is available for legacy reasons, but is no longer being actively maintained. If you rely on this package and would like to help with maintenance, please file an issue.
+
 Install
 -------
 
